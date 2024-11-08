@@ -20,3 +20,5 @@ https://en.wikipedia.org/wiki/Advanced_Encryption_Standard#Performance
 https://github.com/aneels3/AES-128
 https://github.com/michaelehab/AES-Verilog
 
+Step-by-step encryption πάνω στο aes-128 (χρήσιμο για debugging)
+https://legacy.cryptool.org/en/cto/aes-step-by-step
