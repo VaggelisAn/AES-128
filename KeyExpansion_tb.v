@@ -6,9 +6,9 @@
 module KeyExpansion_tb;
 
 reg [127:0] key;
-wire [1407:0] round_keys;   
+wire [1407:0] RoundKeys;   
 
-KeyExpansion KeyExpansion(.key(key), .round_keys(round_keys));
+KeyExpansion KeyExpansion(.key(key), .RoundKeys(RoundKeys));
 
 initial begin
     $dumpfile("dump.vcd");
@@ -16,12 +16,12 @@ initial begin
     key = 128'h0;
     #250
     $display("key = \n%h", key);
-    $display("round_keys = \n%h", round_keys);
+    $display("RoundKeys = \n%h", RoundKeys);
     #1
     key = 128'h2b7e151628aed2a6abf7158809cf4f3c;
     #250
     $display("key = \n%h", key);
-    $display("round_keys = \n%h", round_keys);
+    $display("RoundKeys = \n%h", RoundKeys);
 
 // with key = 0, expecting:
 // 00000000000000000000000000000000
@@ -38,8 +38,6 @@ initial begin
 // 6d88a37a110b3efddbf98641ca0093fd4e54f70e5f5fc9f384a64fb24ea6dc4f
 // ead27321b58dbad2312bf5607f8d292fac7766f319fadc2128d12941575c006e
 // d014f9a8c9ee2589e13f0cc8b6630ca6
-
-
     $finish;
 end 
 endmodule

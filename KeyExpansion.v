@@ -30,11 +30,11 @@
 // This steps destroys any symmetries that may have been introduced in other steps in the key expansion algo
 
 `timescale 1ns / 1ps
-//+`include "lut//sbox.v"
+//`include "lut//sbox.v" todo check the encryption loop and do the same for the sbox generation here
 
-module KeyExpansion(key, round_keys);
+module KeyExpansion(key, RoundKeys);
 input [127:0] key;
-output reg [1407:0] round_keys;
+output reg [1407:0] RoundKeys;
 
 reg [31:0] w [0:43];
 
@@ -71,7 +71,7 @@ always@* begin
     #5; // simulate delay so we can monitor results in gtkwave
     end
 
-    round_keys = {w[0], w[1], w[2], w[3], w[4], w[5], w[6], w[7],
+    RoundKeys = {w[0], w[1], w[2], w[3], w[4], w[5], w[6], w[7],
                 w[8], w[9], w[10], w[11], w[12], w[13], w[14], w[15],
                 w[16], w[17], w[18], w[19], w[20], w[21], w[22], w[23],
                 w[24], w[25], w[26], w[27], w[28], w[29], w[30], w[31],
@@ -105,8 +105,10 @@ function [31:0] rcon_w;
     end 
 endfunction	
 
-// I could not find a way to use sbox from the prexisting lut,
-// without initializing a new memory, or getting way too involved with tasks.
+// I could not find a way to use sbox from the prexisting lut, 
+// since accessing a memory requires a clock, and our design is combinational.
+// Another way I found to overcome this problem is by using tasks,
+// but tests were unsuccessfull and the code becomes a bit unreadable!
 function [7:0] sbox(input [7:0] sbox_in);  
 begin
     case (sbox_in)

@@ -1,5 +1,4 @@
 `include "SubBytes.v"
-`include "lut//sbox_mem.v"
 // Using the below tool to cross-check results:
 // https://legacy.cryptool.org/en/cto/aes-step-by-step
 
