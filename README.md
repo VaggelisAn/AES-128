@@ -1,5 +1,5 @@
 # AES-128
-AES-128 for ece455
+AES-128 Implementation
 
 Επίσημη περιγραφή του AES-128:
 https://csrc.nist.gov/files/pubs/fips/197/final/docs/fips-197.pdf
