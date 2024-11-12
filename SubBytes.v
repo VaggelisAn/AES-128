@@ -3,6 +3,9 @@
 /** Vaggelis Ananiadis 03409, Nikh-Maria Kalantzh 03502 **/
 
 `timescale 1ns / 1ps
+`include "lut//sbox.v"
+// TODO add explanation
+
 
 module SubBytes(in, out);
 input [127:0] in;

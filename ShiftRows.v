@@ -4,6 +4,8 @@
 
 `timescale 1ns / 1ps
 
+// TODO add explanation
+
 module ShiftRows(in, out);
 input [127:0] in;
 output [127:0] out;

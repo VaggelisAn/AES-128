@@ -25,6 +25,11 @@
         AddRoundKey(state, w[10*4, (10+1)*4-1])
         out = state
     end
+
+    We assign the following paramater values:
+    Nk = 4words = 128bits (key length)
+    Nb = 4words = 128bits (block size)
+    Nr = 10 (number of rounds)
 */
 
 
@@ -36,6 +41,6 @@ output [127:0] cipher;
 
 wire [127:0] RoundKey_out;
 
-AddRoundKey(.in(state), .key(key[3, 0]), .out(RoundKey_out))
+//AddRoundKey(.in(state), .key(key[3, 0]), .out(RoundKey_out))
 
 endmodule

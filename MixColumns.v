@@ -2,6 +2,8 @@
 /**                 MixColumns Module                   **/
 /** Vaggelis Ananiadis 03409, Nikh-Maria Kalantzh 03502 **/
 
+// TODO add explanation
+
 module MixColumns(in, out);
 input [127:0] in;
 output [127:0] out;

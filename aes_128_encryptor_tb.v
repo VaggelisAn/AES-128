@@ -24,7 +24,7 @@ initial begin
     // data_in = $urandom;
     // key_in = $urandom;
     data_in = 128'h00000101030307070f0f1f1f3f3f7f7f;
-    key_in = 128'h0;
+    key_in = 128'h000010f0;
     #15
     $finish;
 end

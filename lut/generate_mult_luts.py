@@ -28,14 +28,14 @@ def print_mult2():
     for i in range(256):
         hex_i = hex(i)[2:]
         hex_mult2_i = hex(mult2(i))[2:]
-        print(f"8'h{hex_i}: out=8'h{hex_mult2_i}")
+        print(f"8'h{hex_i}: out=8'h{hex_mult2_i};")
 
 def print_mult3():
     print("Generate LUT for multiplication in the finite fields with 3:")
     for i in range(256):
         hex_i = hex(i)[2:]
         hex_mult3_i = hex(mult3(i))[2:]
-        print(f"8'h{hex_i}: out=8'h{hex_mult3_i}")
+        print(f"8'h{hex_i}: out=8'h{hex_mult3_i};")
 
-print_mult2()
-print_mult3()
+#print_mult2()
+#print_mult3()

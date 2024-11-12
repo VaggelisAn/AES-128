@@ -16,8 +16,9 @@ https://ieeexplore.ieee.org/abstract/document/5688757
 wikipedia:
 https://en.wikipedia.org/wiki/Advanced_Encryption_Standard#Performance
 
-Κώδικας στο github:
-https://github.com/aneels3/AES-128 και https://github.com/michaelehab/AES-Verilog
+Κώδικας στο github
+https://github.com/aneels3/AES-128
+https://github.com/michaelehab/AES-Verilog
 
 Step-by-step encryption πάνω στο aes-128 (χρήσιμο για debugging)
 https://legacy.cryptool.org/en/cto/aes-step-by-step
