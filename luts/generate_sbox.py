@@ -6,7 +6,7 @@
 import numpy as np
 
 # ----------------------------------------------
-# Calculate MI
+# Calculate Multiplicative Inverse, as described in the following stackoverflow:
 # https://stackoverflow.com/questions/45442396/a-pure-python-way-to-calculate-the-multiplicative-inverse-in-gf28-using-pytho
 def gf_degree(a) :
    res = 0
@@ -77,15 +77,14 @@ def bit_scrambling(b, c=0x63):
 # [10,11,12,...,1F],
 # [...............],
 # [F0,F1,F2,...,FF]
-print("Generate starting matrix:")
 sbox = [[f"{i:X}{j:X}" for j in range(16)] for i in range(16)]
-print(np.matrix(sbox))
+
+#print("Generate starting matrix:\n", np.matrix(sbox))
 
 # 2. Find the Multiplicative Inverse of the table in GF(2^8)
 # Our gf_invert function works on dec numbers,
 # so we first convert into dec, get the MI inverse of the dec,
 # and convert back to hex:
-print("MI Matrix:")
 for row in range(16):
    for col in range(16):
       if (row==0 and col==0):
@@ -95,15 +94,14 @@ for row in range(16):
          dec_num = int(hex_num, 16)
          MI_dec = gf_invert(dec_num)
          sbox[col][row] = hex(MI_dec)
-print(np.matrix(sbox))
+#print("MI Matrix\n", np.matrix(sbox))
 
 # 3. Apply Bit-Scrambling by applying the following bit transformation:
 # bi = bi (+) b(i+4)mod8 (+) b(i+5)mod8 (+) b(i+6)mod8 (+) b(i+7)mod8 (+) c
 # where c = 0x63
-print("Matrix after bit-scrambling:")
 for row in range(16):
    for col in range(16):
-      scrambled_int = bit_scrambling( (int(sbox[col][row], 16)) ) 
+      scrambled_int = bit_scrambling( (int(sbox[col][row], 16)) )
       sbox[col][row] = hex(scrambled_int)
 
-print(np.matrix(sbox))
+#print("Matrix after bit-scrambling:", np.matrix(sbox))

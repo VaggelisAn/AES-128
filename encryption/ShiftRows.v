@@ -2,9 +2,10 @@
 /**                 ShiftRows Module                    **/
 /** Vaggelis Ananiadis 03409, Nikh-Maria Kalantzh 03502 **/
 
-`timescale 1ns / 1ps
+// In Shift Rows the bytes in the last three rows of the state are cyclically
+// shifted over different numbers of bytes
 
-// TODO add explanation
+`timescale 1ns / 1ps
 
 module ShiftRows(in, out);
 input [127:0] in;
