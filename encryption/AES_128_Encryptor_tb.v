@@ -21,12 +21,16 @@ initial begin
     // values taken from the nist pdf:
     in = 128'h3243f6a8885a308d313198a2e0370734;
     key = 128'h2b7e151628aed2a6abf7158809cf4f3c;
-    $display("in=%h\nkey=%h\ncipher=%h",in, key, cipher);
     #300
+    $display("in=%h\nkey=%h\ncipher=%h",in, key, cipher);
+    // expecting: 3925841d02dc09fbdc118597196a0b32
+    #1
     in = 128'h00112233445566778899aabbccddeeff;
     key = 128'h000102030405060708090a0b0c0d0e0f;
     #300
     $display("in=%h\nkey=%h\ncipher=%h",in, key, cipher);
+    // expecting: 69c4e0d86a7b0430d8cdb78070b4c55a
+    #1
     $finish;
 end
 

@@ -1,3 +1,9 @@
+#         Implementation of the AES-128 Encryptor     #
+#             rcon LUT Generation Script              #
+# Vaggelis Ananiadis 03409, Nikh-Maria Kalantzh 03502 #
+
+# This script generates the rcon switch-case found in KeyExpansion.v
+
 import numpy as np
 from generate_mult_luts import mult2
 

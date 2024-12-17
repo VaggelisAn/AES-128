@@ -2,9 +2,8 @@
 /**                 AES-128 Encryptor Module            **/
 /** Vaggelis Ananiadis 03409, Nikh-Maria Kalantzh 03502 **/
 
-`timescale 1ns / 1ps
-
-/*  Here we implement the aes-128 encryptor, based on the specifications provided
+/*  
+    Here we implement the aes-128 encryptor, based on the specifications provided
     by the National Institute of Standards and Technology: 
     https://csrc.nist.gov/files/pubs/fips/197/final/docs/fips-197.pdf
 
@@ -14,6 +13,9 @@
     AES on wikipedia:
     https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 */
+
+`timescale 1ns / 1ps
+
 `include "KeyExpansion.v"
 `include "AddRoundKey.v"
 `include "SubBytes.v"
@@ -37,7 +39,7 @@ wire [127:0] afterRoundKey [1:11];
 // Generate key schedule
 KeyExpansion KeyExpansion(key, RoundKeys);
 
-AddRoundKey AddRoundKey0(.in(in), .key(RoundKeys[1407-:128]), .out(state[0]));
+AddRoundKey AddRoundKey0(.in(in), .key(RoundKeys[1407:1280]), .out(state[0]));
 
 genvar i;
 generate
@@ -53,6 +55,7 @@ SubBytes SubBytes10(.in(state[9]), .out(afterSubBytes[10]));
 ShiftRows ShiftRows10(.in(afterSubBytes[10]), .out(afterShiftRows[10]));
 AddRoundKey AddRoundKey10(.in(afterShiftRows[10]), .key(RoundKeys[127:0]), .out(state[10]));	
 
+// Output is stored in cipher
 assign cipher = state[10];
 
 endmodule
