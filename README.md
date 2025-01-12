@@ -18,3 +18,6 @@ https://en.wikipedia.org/wiki/Advanced_Encryption_Standard#Performance
 
 Step-by-step encryption πάνω στο aes-128 (χρήσιμο για debugging)
 https://legacy.cryptool.org/en/cto/aes-step-by-step
+
+IMPLEMENTATION OF UART WITH DATA ENCRYPTIONUSING FPGA
+https://www.digitalxplore.org/up_proc/pdf/76-140056901131-34.pdf
